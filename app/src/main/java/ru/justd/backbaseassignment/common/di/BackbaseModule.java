@@ -18,11 +18,11 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.justd.backbaseassignment.BuildConfig;
 import ru.justd.backbaseassignment.common.APIService;
-import ru.justd.backbaseassignment.list.model.MemoryCacheMembersDataSource;
-import ru.justd.backbaseassignment.list.model.RetrofitMembersDataSource;
-import ru.justd.backbaseassignment.list.model.MembersRepository;
-import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponse;
-import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponseDeserializer;
+import ru.justd.backbaseassignment.index.model.MemoryCacheMembersDataSource;
+import ru.justd.backbaseassignment.index.model.RetrofitMembersDataSource;
+import ru.justd.backbaseassignment.index.model.MembersRepository;
+import ru.justd.backbaseassignment.index.model.remote.FetchMemebersResponse;
+import ru.justd.backbaseassignment.index.model.remote.FetchMemebersResponseDeserializer;
 
 /**
  * Created by defuera on 20/04/2017.

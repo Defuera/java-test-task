@@ -1,4 +1,4 @@
-package ru.justd.backbaseassignment.list.model;
+package ru.justd.backbaseassignment.index.model;
 
 import java.util.List;
 

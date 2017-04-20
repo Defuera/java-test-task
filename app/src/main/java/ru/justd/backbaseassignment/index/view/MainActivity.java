@@ -1,4 +1,4 @@
-package ru.justd.backbaseassignment.list.view;
+package ru.justd.backbaseassignment.index.view;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,10 +18,10 @@ import butterknife.ButterKnife;
 import ru.justd.backbaseassignment.R;
 import ru.justd.backbaseassignment.common.BackbaseApp;
 import ru.justd.backbaseassignment.common.BaseActivity;
-import ru.justd.backbaseassignment.detailed.view.DetailedMemberActivity;
-import ru.justd.backbaseassignment.list.model.Department;
-import ru.justd.backbaseassignment.list.model.Member;
-import ru.justd.backbaseassignment.list.presenter.MainPresenter;
+import ru.justd.backbaseassignment.detailed.view.DetailedActivity;
+import ru.justd.backbaseassignment.index.model.Department;
+import ru.justd.backbaseassignment.index.model.Member;
+import ru.justd.backbaseassignment.index.presenter.MainPresenter;
 import ru.justd.lilwidgets.LilLoaderWidget;
 
 public class MainActivity extends BaseActivity<MainView, MainPresenter> implements MainView {
@@ -46,6 +46,22 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
 
     private final ListItemAdapter adapter = new ListItemAdapter();
 
+
+    //region BaseActivity implementation
+
+    @Override
+    protected MainView view() {
+        return this;
+    }
+
+    @Override
+    protected MainPresenter presenter() {
+        return presenter;
+    }
+
+    //region
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +79,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
                 )
                 .addViewBinder(MemberWidget::bind)
                 .addOnItemViewClickListener(
-                        (view, item) -> DetailedMemberActivity.start(view.getContext(), item)
+                        (view, item) -> DetailedActivity.start(view.getContext(), item)
                 );
 
         adapter
@@ -88,15 +104,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         });
     }
 
-    @Override
-    protected MainView view() {
-        return this;
-    }
-
-    @Override
-    protected MainPresenter presenter() {
-        return presenter;
-    }
+    //region BaseView implementation
 
     @Override
     public void showLoading(boolean show) {
@@ -121,5 +129,7 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
         throwable.printStackTrace();
         loader.showNetworkError();
     }
+
+    //region
 
 }

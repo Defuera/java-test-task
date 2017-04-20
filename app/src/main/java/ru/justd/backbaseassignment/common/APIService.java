@@ -1,7 +1,7 @@
 package ru.justd.backbaseassignment.common;
 
 import retrofit2.http.GET;
-import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponse;
+import ru.justd.backbaseassignment.index.model.remote.FetchMemebersResponse;
 import rx.Single;
 
 /**

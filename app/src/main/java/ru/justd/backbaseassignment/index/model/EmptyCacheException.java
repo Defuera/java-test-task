@@ -1,4 +1,4 @@
-package ru.justd.backbaseassignment.list.model;
+package ru.justd.backbaseassignment.index.model;
 
 /**
  * Created by defuera on 20/04/2017.

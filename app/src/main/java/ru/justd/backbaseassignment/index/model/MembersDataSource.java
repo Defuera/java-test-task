@@ -1,6 +1,6 @@
-package ru.justd.backbaseassignment.list.model;
+package ru.justd.backbaseassignment.index.model;
 
-import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponse;
+import ru.justd.backbaseassignment.index.model.remote.FetchMemebersResponse;
 import rx.Single;
 
 /**

@@ -1,4 +1,4 @@
-package ru.justd.backbaseassignment.list.model;
+package ru.justd.backbaseassignment.index.model;
 
 import java.util.concurrent.TimeUnit;
 
@@ -7,7 +7,7 @@ import javax.inject.Singleton;
 
 import ru.justd.backbaseassignment.BuildConfig;
 import ru.justd.backbaseassignment.common.APIService;
-import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponse;
+import ru.justd.backbaseassignment.index.model.remote.FetchMemebersResponse;
 import rx.Single;
 
 /**

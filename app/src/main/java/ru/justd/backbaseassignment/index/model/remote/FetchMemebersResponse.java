@@ -1,8 +1,8 @@
-package ru.justd.backbaseassignment.list.model.remote;
+package ru.justd.backbaseassignment.index.model.remote;
 
 import java.util.List;
 
-import ru.justd.backbaseassignment.list.model.Department;
+import ru.justd.backbaseassignment.index.model.Department;
 
 /**
  * Created by defuera on 20/04/2017.

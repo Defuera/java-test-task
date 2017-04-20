@@ -1,8 +1,8 @@
-package ru.justd.backbaseassignment.list.view;
+package ru.justd.backbaseassignment.index.view;
 
 import java.util.List;
 
-import ru.justd.backbaseassignment.list.model.Department;
+import ru.justd.backbaseassignment.index.model.Department;
 import ru.justd.backbaseassignment.common.view.LoaderView;
 
 /**

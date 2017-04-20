@@ -1,4 +1,4 @@
-package ru.justd.backbaseassignment.list.view;
+package ru.justd.backbaseassignment.index.view;
 
 import android.content.Context;
 import android.widget.FrameLayout;
@@ -9,7 +9,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.justd.backbaseassignment.R;
 import ru.justd.backbaseassignment.common.utils.ImageUtils;
-import ru.justd.backbaseassignment.list.model.Member;
+import ru.justd.backbaseassignment.index.model.Member;
 
 /**
  * Created by defuera on 20/04/2017.

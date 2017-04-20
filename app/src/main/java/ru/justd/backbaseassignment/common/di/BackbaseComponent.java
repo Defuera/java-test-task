@@ -3,7 +3,7 @@ package ru.justd.backbaseassignment.common.di;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import ru.justd.backbaseassignment.list.view.MainActivity;
+import ru.justd.backbaseassignment.index.view.MainActivity;
 
 /**
  * Created by defuera on 20/04/2017.

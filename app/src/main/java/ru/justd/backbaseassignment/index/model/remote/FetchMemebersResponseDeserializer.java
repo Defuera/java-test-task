@@ -1,4 +1,4 @@
-package ru.justd.backbaseassignment.list.model.remote;
+package ru.justd.backbaseassignment.index.model.remote;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import ru.justd.backbaseassignment.list.model.Department;
-import ru.justd.backbaseassignment.list.model.Member;
+import ru.justd.backbaseassignment.index.model.Department;
+import ru.justd.backbaseassignment.index.model.Member;
 
 /**
  * Created by defuera on 20/04/2017.

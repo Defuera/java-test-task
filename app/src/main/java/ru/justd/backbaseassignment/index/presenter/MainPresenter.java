@@ -1,10 +1,10 @@
-package ru.justd.backbaseassignment.list.presenter;
+package ru.justd.backbaseassignment.index.presenter;
 
 import javax.inject.Inject;
 
 import ru.justd.backbaseassignment.common.BasePresenter;
-import ru.justd.backbaseassignment.list.model.MembersRepository;
-import ru.justd.backbaseassignment.list.view.MainView;
+import ru.justd.backbaseassignment.index.model.MembersRepository;
+import ru.justd.backbaseassignment.index.view.MainView;
 
 /**
  * Created by defuera on 20/04/2017.

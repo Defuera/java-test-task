@@ -14,16 +14,22 @@ import rx.Single;
  * Created by defuera on 20/04/2017.
  */
 @Singleton
-class MembersRemoteDataSource {
+public class MembersRemoteDataSource implements MembersDataSource {
+
+    private final APIService apiService;
 
     @Inject
-    APIService apiService;
-
-    @Inject
-    MembersRemoteDataSource() {}
+    public MembersRemoteDataSource(APIService apiService) {
+        this.apiService = apiService;
+    }
 
     public Single<FetchMemebersResponse> fetchMembers() {
         return apiService.fetchMembers()
                 .delay(BuildConfig.DEBUG ? 2 : 0, TimeUnit.SECONDS); //for testing only
+    }
+
+    @Override
+    public void store(FetchMemebersResponse response) {
+        throw new UnsupportedOperationException();
     }
 }

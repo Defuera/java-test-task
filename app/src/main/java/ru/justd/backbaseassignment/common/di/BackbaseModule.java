@@ -18,6 +18,9 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.justd.backbaseassignment.BuildConfig;
 import ru.justd.backbaseassignment.common.APIService;
+import ru.justd.backbaseassignment.list.model.MembersInMemoryDataSource;
+import ru.justd.backbaseassignment.list.model.MembersRemoteDataSource;
+import ru.justd.backbaseassignment.list.model.MembersRepository;
 import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponse;
 import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponseDeserializer;
 
@@ -80,6 +83,24 @@ public class BackbaseModule {
                 .addConverterFactory(converterFactory)
                 .client(client)
                 .build();
+    }
+
+    @Provides
+    @Singleton
+    MembersRemoteDataSource provideMembersRemoteDataSource(APIService apiService) {
+        return new MembersRemoteDataSource(apiService);
+    }
+
+    @Provides
+    @Singleton
+    MembersInMemoryDataSource provideMembersInMemoryDataSource() {
+        return new MembersInMemoryDataSource();
+    }
+
+    @Provides
+    @Singleton
+    MembersRepository provideMembersRepository(MembersRemoteDataSource remote, MembersInMemoryDataSource local) {
+        return new MembersRepository(remote, local);
     }
 
 }

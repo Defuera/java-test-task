@@ -12,16 +12,16 @@ import rx.exceptions.Exceptions;
  * Created by defuera on 20/04/2017.
  */
 @Singleton
-public class MembersInteractor {
+public class MembersRepository {
+
+    private final MembersDataSource remoteDataSource;
+    private final MembersDataSource localDataSource;
 
     @Inject
-    MembersRemoteDataSource remoteDataSource;
-
-    @Inject
-    MembersInMemoryDataSource localDataSource;
-
-    @Inject
-    MembersInteractor() {}
+    public MembersRepository(MembersDataSource remoteDataSource, MembersDataSource localDataSource) {
+        this.remoteDataSource = remoteDataSource;
+        this.localDataSource = localDataSource;
+    }
 
     public Single<List<Department>> fetchMembers() {
 
@@ -32,15 +32,15 @@ public class MembersInteractor {
                             if (throwable instanceof EmptyCacheException) {
                                 return remoteDataSource
                                         .fetchMembers()
-                                        .map(response -> response.departments)
-                                        .doOnSuccess(departments -> localDataSource.storeMembers(departments));
+                                        .doOnSuccess(localDataSource::store);
                             } else {
                                 throw Exceptions.propagate(throwable);
                             }
 
                         }
 
-                );
+                )
+                .map(response -> response.departments);
     }
 
 }

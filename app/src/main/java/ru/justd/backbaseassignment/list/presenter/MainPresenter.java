@@ -3,7 +3,7 @@ package ru.justd.backbaseassignment.list.presenter;
 import javax.inject.Inject;
 
 import ru.justd.backbaseassignment.common.BasePresenter;
-import ru.justd.backbaseassignment.list.model.MembersInteractor;
+import ru.justd.backbaseassignment.list.model.MembersRepository;
 import ru.justd.backbaseassignment.list.view.MainView;
 
 /**
@@ -13,7 +13,7 @@ import ru.justd.backbaseassignment.list.view.MainView;
 public class MainPresenter extends BasePresenter<MainView> {
 
     @Inject
-    MembersInteractor interactor;
+    MembersRepository interactor;
 
     @Inject
     MainPresenter() {}

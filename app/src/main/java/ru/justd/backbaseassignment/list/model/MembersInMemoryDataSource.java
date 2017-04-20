@@ -1,32 +1,31 @@
 package ru.justd.backbaseassignment.list.model;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponse;
 import rx.Single;
 
 /**
  * Created by defuera on 20/04/2017.
  */
 @Singleton
-public class MembersInMemoryDataSource {
+public class MembersInMemoryDataSource implements MembersDataSource {
 
-    private List<Department> departments;
+    private FetchMemebersResponse response;
 
     @Inject
-    MembersInMemoryDataSource() {}
+    public MembersInMemoryDataSource() {}
 
-    public Single<List<Department>> fetchMembers() {
-        if (departments == null) {
+    public Single<FetchMemebersResponse> fetchMembers() {
+        if (response == null) {
             return Single.error(new EmptyCacheException());
         } else {
-            return Single.just(departments);
+            return Single.just(response);
         }
     }
 
-    public void storeMembers(List<Department> departments) {
-        this.departments = departments;
+    public void store(FetchMemebersResponse response) {
+        this.response = response;
     }
 }

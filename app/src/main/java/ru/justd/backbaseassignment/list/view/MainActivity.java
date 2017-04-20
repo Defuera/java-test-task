@@ -80,6 +80,12 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
                 .addViewBinder(TextView::setText);
 
         recycler.setAdapter(adapter);
+
+        loader.setOnErrorClicked(error -> {
+            if (error == LilLoaderWidget.NETWORK_ERROR){
+                presenter().reloadData();
+            }
+        });
     }
 
     @Override

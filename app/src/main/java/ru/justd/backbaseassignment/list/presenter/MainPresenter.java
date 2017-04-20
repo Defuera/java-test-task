@@ -24,6 +24,7 @@ public class MainPresenter extends BasePresenter<MainView> {
     }
 
     private void loadData() {
+        view().showLoading(true);
         subscribe(
                 interactor.fetchMembers(),
                 departments -> {
@@ -32,6 +33,10 @@ public class MainPresenter extends BasePresenter<MainView> {
                 },
                 throwable -> view().showError(throwable)
         );
+    }
+
+    public void reloadData() {
+        loadData();
     }
 
 }

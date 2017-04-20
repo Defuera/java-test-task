@@ -23,12 +23,6 @@ public class MemberWidget extends FrameLayout {
     @BindView(R.id.name)
     TextView name;
 
-    @BindView(R.id.role)
-    TextView role;
-
-    @BindView(R.id.email)
-    TextView email;
-
     public MemberWidget(Context context) {
         super(context);
         init();
@@ -41,8 +35,6 @@ public class MemberWidget extends FrameLayout {
 
     public void bind(Member member) {
         name.setText(member.name + " " + member.surname);
-        role.setText(member.role);
-        email.setText(member.email);
         ImageUtils.loadUserpic(getContext(), member.photo, image);
     }
 }

@@ -14,25 +14,28 @@ import rx.exceptions.Exceptions;
 @Singleton
 public class MembersRepository {
 
-    private final MembersDataSource remoteDataSource;
-    private final MembersDataSource localDataSource;
+    private final MembersDataSource remote;
+    private final MembersDataSource local;
 
     @Inject
-    public MembersRepository(MembersDataSource remoteDataSource, MembersDataSource localDataSource) {
-        this.remoteDataSource = remoteDataSource;
-        this.localDataSource = localDataSource;
+    public MembersRepository(MembersDataSource remote, MembersDataSource local) {
+        this.remote = remote;
+        this.local = local;
     }
 
+    /**
+     * @return list of {@link Department}s from cache or from network if cache is not awailable
+     */
     public Single<List<Department>> fetchMembers() {
 
-        return localDataSource
+        return local
                 .fetchMembers()
                 .onErrorResumeNext(
                         throwable -> {
                             if (throwable instanceof EmptyCacheException) {
-                                return remoteDataSource
+                                return remote
                                         .fetchMembers()
-                                        .doOnSuccess(localDataSource::store);
+                                        .doOnSuccess(local::store);
                             } else {
                                 throw Exceptions.propagate(throwable);
                             }

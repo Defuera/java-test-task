@@ -14,12 +14,12 @@ import rx.Single;
  * Created by defuera on 20/04/2017.
  */
 @Singleton
-public class MembersRemoteDataSource implements MembersDataSource {
+public class RetrofitMembersDataSource implements MembersDataSource {
 
     private final APIService apiService;
 
     @Inject
-    public MembersRemoteDataSource(APIService apiService) {
+    public RetrofitMembersDataSource(APIService apiService) {
         this.apiService = apiService;
     }
 

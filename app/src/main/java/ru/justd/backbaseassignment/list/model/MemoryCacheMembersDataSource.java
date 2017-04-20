@@ -10,12 +10,12 @@ import rx.Single;
  * Created by defuera on 20/04/2017.
  */
 @Singleton
-public class MembersInMemoryDataSource implements MembersDataSource {
+public class MemoryCacheMembersDataSource implements MembersDataSource {
 
     private FetchMemebersResponse response;
 
     @Inject
-    public MembersInMemoryDataSource() {}
+    public MemoryCacheMembersDataSource() {}
 
     public Single<FetchMemebersResponse> fetchMembers() {
         if (response == null) {

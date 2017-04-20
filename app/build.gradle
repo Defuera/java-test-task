@@ -100,4 +100,8 @@ dependencies {
     // other cool stuff
     compile 'com.google.code.gson:gson:2.7'
 
+    //tests
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:2.2.26"
+
 }

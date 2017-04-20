@@ -1,6 +1,39 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        //noinspection GradleDynamicVersion
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath "gradle.plugin.me.tatarka:gradle-retrolambda:3.2.5"
+    }
+
+    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
+}
+
+plugins {
+    id "me.tatarka.retrolambda" version "3.2.5"
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: "me.tatarka.retrolambda"
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+    flatDir { dirs 'libs' }
+}
+
 
 android {
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -9,22 +42,60 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
+
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "BASE_URL", "\"http://nielsmouthaan.nl/backbase/\""
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"http://nielsmouthaan.nl/backbase/\""
         }
     }
+
 }
 
+def supportLibraryVersion = '25.3.1'
+def retrofitVersion = '2.1.0'
+def okHttpVersion = '3.4.1'
+def daggerVersion = '2.4'
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+
+    //support libraries
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "com.android.support:design:$supportLibraryVersion"
+
+    //networking
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+    compile "com.squareup.okhttp3:okhttp-ws:$okHttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    compile "com.squareup.picasso:picasso:2.5.2"
+
+    //UI
+    compile 'com.github.Defuera:lilwidgets:0.10' //some widgets
+    compile 'com.github.m039:el-adapter:39a2e7b916d4344cc4198d8371dae87c4970f51d'
+
+    //rx
+    compile "io.reactivex:rxandroid:1.2.1"
+    compile 'io.reactivex:rxjava:1.2.0'
+
+    //injection
+    compile "com.google.dagger:dagger:$daggerVersion"
+    apt "com.google.dagger:dagger-compiler:$daggerVersion"
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    compile 'com.jakewharton:butterknife:8.5.1'
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
+
+    // other cool stuff
+    compile 'com.google.code.gson:gson:2.7'
+
 }

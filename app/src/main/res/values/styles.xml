@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="LilStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">?colorAccent</item>
+        <item name="lilNetworkErrorView">@layout/widget_network_error</item>
+        <item name="lilNoDataErrorView">@layout/widget_no_data_error</item>
+        <item name="lilLoaderWidgetProgressColor">?colorAccent</item>
+    </style>
+
 </resources>

@@ -15,7 +15,7 @@ import ru.justd.backbaseassignment.list.model.Member;
  * Created by defuera on 20/04/2017.
  */
 
-class MemberWidget extends FrameLayout {
+public class MemberWidget extends FrameLayout {
 
     @BindView(R.id.image)
     ImageView image;

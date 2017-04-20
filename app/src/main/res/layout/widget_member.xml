@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="?android:selectableItemBackground"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/padding_8"
+    android:paddingLeft="@dimen/padding_16"
+    android:paddingRight="@dimen/padding_16"
+    android:paddingTop="@dimen/padding_8">
 
     <ImageView
         android:id="@+id/image"
@@ -14,7 +19,7 @@
 
     <TextView
         android:id="@+id/name"
-        style="@style/Title"
+        style="@style/Text.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/padding_8"
@@ -27,7 +32,7 @@
 
     <TextView
         android:id="@+id/role"
-        style="@style/Body"
+        style="@style/Text.Body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/name"
@@ -38,7 +43,7 @@
 
     <TextView
         android:id="@+id/email"
-        style="@style/Body"
+        style="@style/Text.Body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/name"

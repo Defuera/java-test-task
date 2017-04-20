@@ -12,6 +12,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindColor;
+import butterknife.BindDimen;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.justd.backbaseassignment.R;
@@ -31,8 +32,14 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     @BindView(R.id.loader)
     LilLoaderWidget loader;
 
-    @BindColor(R.color.colorAccent)
-    int titleColor;
+    @BindColor(R.color.bg_text_title)
+    int titleBackgroundColor;
+
+    @BindDimen(R.dimen.padding_8)
+    int paddingVertical;
+
+    @BindDimen(R.dimen.padding_16)
+    int paddingHorizontal;
 
     @Inject
     MainPresenter presenter;
@@ -64,7 +71,9 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
                         String.class,
                         parent -> {
                             TextView title = new TextView(parent.getContext());
-                            title.setBackgroundColor(titleColor);
+                            title.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, paddingVertical);
+                            title.setTextAppearance(R.style.Text_Title);
+                            title.setBackgroundColor(titleBackgroundColor);
                             return title;
                         }
                 )

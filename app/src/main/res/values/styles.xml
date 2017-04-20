@@ -16,13 +16,18 @@
         <item name="lilLoaderWidgetProgressColor">?colorAccent</item>
     </style>
 
-    <style name="Title">
+    <style name="Text">
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Text.Title">
         <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/text_title</item>
     </style>
 
-    <style name="Body">
+    <style name="Text.Body">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/text_body</item>
     </style>

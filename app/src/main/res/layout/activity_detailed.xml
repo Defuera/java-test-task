@@ -21,9 +21,10 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="128dp"
-                android:layout_height="128dp"
-                android:background="@drawable/userpic_placeholer"/>
+                android:layout_width="@dimen/avatar_large"
+                android:layout_height="@dimen/avatar_large"
+                android:background="@drawable/userpic_placeholer"
+                android:contentDescription="@string/descr_user_image"/>
 
             <TextView
                 android:id="@+id/name"

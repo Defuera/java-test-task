@@ -3,4 +3,5 @@
     <string name="no_network">Network error</string>
     <string name="no_data">No data</string>
     <string name="tap_to_retry">Tap to retry</string>
+    <string name="descr_user_image">User image</string>
 </resources>

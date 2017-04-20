@@ -8,14 +8,12 @@
     android:orientation="vertical">
 
     <TextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         style="@style/Text.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_network"/>
 
     <TextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         style="@style/Text.Body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

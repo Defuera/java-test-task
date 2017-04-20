@@ -24,8 +24,9 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
+            android:layout_width="@dimen/avatar_small"
+            android:layout_height="@dimen/avatar_small"
+            android:contentDescription="@string/descr_user_image"
             tools:src="@color/colorAccent"/>
 
         <TextView

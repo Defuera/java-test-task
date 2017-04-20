@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 import ru.justd.backbaseassignment.R;
 import ru.justd.backbaseassignment.common.BackbaseApp;
 import ru.justd.backbaseassignment.common.BaseActivity;
-import ru.justd.backbaseassignment.detailed.DetailedMemberActivity;
+import ru.justd.backbaseassignment.detailed.view.DetailedMemberActivity;
 import ru.justd.backbaseassignment.list.model.Department;
 import ru.justd.backbaseassignment.list.model.Member;
 import ru.justd.backbaseassignment.list.presenter.MainPresenter;

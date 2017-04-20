@@ -1,6 +1,5 @@
-package ru.justd.backbaseassignment.detailed;
+package ru.justd.backbaseassignment.detailed.view;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;

@@ -3,6 +3,7 @@ package ru.justd.backbaseassignment.list.view;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.m039.el_adapter.ListItemAdapter;
 
@@ -10,12 +11,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.justd.backbaseassignment.R;
 import ru.justd.backbaseassignment.common.BackbaseApp;
 import ru.justd.backbaseassignment.common.BaseActivity;
 import ru.justd.backbaseassignment.detailed.DetailedMemberActivity;
+import ru.justd.backbaseassignment.list.model.Department;
 import ru.justd.backbaseassignment.list.model.Member;
 import ru.justd.backbaseassignment.list.presenter.MainPresenter;
 import ru.justd.lilwidgets.LilLoaderWidget;
@@ -27,6 +30,9 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
 
     @BindView(R.id.loader)
     LilLoaderWidget loader;
+
+    @BindColor(R.color.colorAccent)
+    int titleColor;
 
     @Inject
     MainPresenter presenter;
@@ -50,8 +56,19 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
                 )
                 .addViewBinder(MemberWidget::bind)
                 .addOnItemViewClickListener(
-                        (view, item) -> DetailedMemberActivity.start(view.getContext(), item.getId())
+                        (view, item) -> DetailedMemberActivity.start(view.getContext(), item)
                 );
+
+        adapter
+                .addViewCreator(
+                        String.class,
+                        parent -> {
+                            TextView title = new TextView(parent.getContext());
+                            title.setBackgroundColor(titleColor);
+                            return title;
+                        }
+                )
+                .addViewBinder(TextView::setText);
 
         recycler.setAdapter(adapter);
     }
@@ -76,13 +93,17 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     }
 
     @Override
-    public void showData(List<Member> members) {
-        adapter.addItems(members);
+    public void showData(List<Department> departments) {
+        for (Department department : departments) {
+            adapter.addItem(department.name);
+            adapter.addItems(department.members);
+        }
         adapter.notifyDataSetChanged();
     }
 
     @Override
     public void showError(Throwable throwable) {
+        throwable.printStackTrace();
         loader.showNetworkError();
     }
 

@@ -1,9 +1,7 @@
 package ru.justd.backbaseassignment.common;
 
-import java.util.List;
-
 import retrofit2.http.GET;
-import ru.justd.backbaseassignment.list.model.Member;
+import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponse;
 import rx.Single;
 
 /**
@@ -13,13 +11,6 @@ import rx.Single;
 public interface APIService {
 
     @GET("members.php")
-    Single<List<Member>> fetchMembers();
-
-//    @FormUrlEncoded
-//    @POST("sessions")
-//    Observable<LoginResponse> login(
-//            @Field("token") String token,
-//            @Field("provider") LoginProvider provider
-//    );
+    Single<FetchMemebersResponse> fetchMembers();
 
 }

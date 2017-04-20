@@ -19,7 +19,8 @@ public class MembersInteractor {
     @Inject
     MembersInteractor() {}
 
-    public Single<List<Member>> fetchMembers(){
-        return dataSource.fetchMembers();
+    public Single<List<Department>> fetchMembers(){
+        return dataSource.fetchMembers()
+                .map(response -> response.departments);
     }
 }

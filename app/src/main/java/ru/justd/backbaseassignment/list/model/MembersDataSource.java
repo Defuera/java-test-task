@@ -1,11 +1,10 @@
 package ru.justd.backbaseassignment.list.model;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import ru.justd.backbaseassignment.common.APIService;
+import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponse;
 import rx.Single;
 
 /**
@@ -20,7 +19,7 @@ class MembersDataSource {
     @Inject
     MembersDataSource (){}
 
-    public Single<List<Member>> fetchMembers() {
+    public Single<FetchMemebersResponse> fetchMembers() {
         return apiService.fetchMembers();
     }
 }

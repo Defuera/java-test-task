@@ -18,6 +18,8 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.justd.backbaseassignment.BuildConfig;
 import ru.justd.backbaseassignment.common.APIService;
+import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponse;
+import ru.justd.backbaseassignment.list.model.remote.FetchMemebersResponseDeserializer;
 
 /**
  * Created by defuera on 20/04/2017.
@@ -41,6 +43,7 @@ public class BackbaseModule {
     @Singleton
     Gson provideGson() {
         return new GsonBuilder()
+                .registerTypeAdapter(FetchMemebersResponse.class, new FetchMemebersResponseDeserializer())
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
     }

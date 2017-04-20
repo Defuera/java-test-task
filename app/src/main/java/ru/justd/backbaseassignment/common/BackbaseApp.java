@@ -17,6 +17,7 @@ public class BackbaseApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         component = DaggerBackbaseComponent
                 .builder()
                 .backbaseModule(new BackbaseModule(this))

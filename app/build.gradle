@@ -80,6 +80,7 @@ dependencies {
     compile "com.squareup.picasso:picasso:2.5.2"
 
     //UI
+    compile 'jp.wasabeef:picasso-transformations:2.1.2' //transformations collection for Picasso
     compile 'com.github.Defuera:lilwidgets:0.10' //some widgets
     compile 'com.github.m039:el-adapter:39a2e7b916d4344cc4198d8371dae87c4970f51d'
 

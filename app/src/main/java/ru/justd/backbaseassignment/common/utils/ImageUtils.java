@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import ru.justd.backbaseassignment.BuildConfig;
 import ru.justd.backbaseassignment.R;
 
@@ -13,12 +14,13 @@ import ru.justd.backbaseassignment.R;
  */
 
 public class ImageUtils {
-    private static final String PHOTOS_PATH = BuildConfig.BASE_URL + "/photos";
+    private static final String PHOTOS_PATH = BuildConfig.BASE_URL + "photos/";
 
     public static void loadUserpic(Context context, String photo, ImageView image) {
         Picasso
                 .with(context)
                 .load(PHOTOS_PATH + photo)
+                .transform(new CropCircleTransformation())
                 .placeholder(R.drawable.userpic_placeholer)
                 .into(image);
     }

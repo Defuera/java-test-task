@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="ru.justd.backbaseassignment">
+          package="ru.justd.testtask">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:name=".common.BackbaseApp"
+        android:name="ru.justd.testtask.common.TestTaskApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".index.view.MainActivity">
+        <activity android:name="ru.justd.testtask.index.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,8 +21,8 @@
         </activity>
 
         <activity
-            android:name=".detailed.view.DetailedActivity"
-            android:parentActivityName=".index.view.MainActivity"/>
+            android:name="ru.justd.testtask.detailed.view.DetailedActivity"
+            android:parentActivityName="ru.justd.testtask.index.view.MainActivity"/>
     </application>
 
 </manifest>

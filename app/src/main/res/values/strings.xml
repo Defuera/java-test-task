@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BackbaseAssignment</string>
+    <string name="app_name">Assignment</string>
     <string name="no_network">Network error</string>
     <string name="no_data">No data</string>
     <string name="tap_to_retry">Tap to retry</string>

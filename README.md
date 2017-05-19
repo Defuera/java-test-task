@@ -5,18 +5,19 @@ Task description:
  
 With given API fetch list of data, containing users by departments and display them in a scrollable list.
 The application should consist of two views:
-o Main view:
-▪ The main view should contain a list with employees categorized per department;
-▪ Each item in the list should display full name and thumbnail of the photo (if present);
-▪ Clicking an item will cause the application to open the detail view.
+* Main view:
+- The main view should contain a list with employees categorized per department;
+- Each item in the list should display full name and thumbnail of the photo (if present);
+- Clicking an item will cause the application to open the detail view.
  
-o Detail view:
-▪ The detail view should display the following information of the selected employee:
-● Full name;
-● Thumbnail of the photo;
-● Department;
-● Role. ▪ A button should be available causing the default email client to be opened with the "To" address filled in with the email address of the employee;
-▪ Clicking the photo should open an image viewer allowing the user to see a bigger version of the photo.
+* Detail view:
+- The detail view should display the following information of the selected employee:
+- Full name;
+- Thumbnail of the photo;
+- Department;
+- Role. 
+- A button should be available causing the default email client to be opened with the "To" address filled in with the email address of the employee;
+- Clicking the photo should open an image viewer allowing the user to see a bigger version of the photo.
  
  
 Notes:
@@ -32,8 +33,8 @@ Additional features - in memory cache implemented via MemoryCacheMembersDataSour
 Application supports rotation but do not support tablet screen.
  
 possible improvements
-- Add Subcomponent for list feature with it's own Module
-- Reduce the number of containers for detailed view
+* Add Subcomponent for list feature with it's own Module
+* Reduce the number of containers for detailed view
  
 Please note: in debug note delay added to load data from network to show loading state. FetchMembersResponseDeserializer.class is added to abstract backend api, since I wasn't satisfied with data structure provided.
  
